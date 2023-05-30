@@ -34,6 +34,7 @@ dnssd::Result dnssd::BonjourAdvertiser::registerService (
     const std::string& regType,
     const char* name,
     const char* domain,
+    uint32_t interfaceIndex,
     uint16_t port,
     const TxtRecord& txtRecord) noexcept
 {
@@ -43,7 +44,7 @@ dnssd::Result dnssd::BonjourAdvertiser::registerService (
     auto result = Result (DNSServiceRegister (
         &serviceRef,
         0,
-        0,
+        interfaceIndex,
         name,
         regType.c_str(),
         domain,

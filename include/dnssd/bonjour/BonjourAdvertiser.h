@@ -23,6 +23,7 @@ public:
         const std::string& regType,
         const char* name,
         const char* domain,
+        uint32_t interfaceIndex,
         uint16_t port,
         const TxtRecord& txtRecord) noexcept override;
 
