@@ -38,6 +38,8 @@ dnssd::Result dnssd::BonjourAdvertiser::registerService (
     uint16_t port,
     const TxtRecord& txtRecord) noexcept
 {
+    kDNSServiceInterfaceIndexLocalOnly;
+    
     DNSServiceRef serviceRef = nullptr;
     auto record = BonjourTxtRecord (txtRecord);
 

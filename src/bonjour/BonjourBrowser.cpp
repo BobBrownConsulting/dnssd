@@ -83,7 +83,7 @@ bool dnssd::BonjourBrowser::reportIfError (const dnssd::Result& result) noexcept
     return false;
 }
 
-dnssd::Result dnssd::BonjourBrowser::browseFor (const std::string& service)
+dnssd::Result dnssd::BonjourBrowser::browseFor (const std::string& service, uint32_t iInterfaceIndex)
 {
     std::lock_guard<std::recursive_mutex> lg (mLock);
 
@@ -102,7 +102,7 @@ dnssd::Result dnssd::BonjourBrowser::browseFor (const std::string& service)
     auto result = dnssd::Result (DNSServiceBrowse (
         &browsingServiceRef,
         kDNSServiceFlagsShareConnection,
-        kDNSServiceInterfaceIndexAny,
+        iInterfaceIndex, //kDNSServiceInterfaceIndexAny,
         service.c_str(),
         nullptr,
         ::browseReply2,

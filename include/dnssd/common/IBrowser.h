@@ -23,7 +23,7 @@ public:
      * @param serviceType The service type (ie. _http._tcp.).
      * @return Returns an Result indicating success or failure.
      */
-    virtual Result browseFor (const std::string& serviceType) = 0;
+    virtual Result browseFor (const std::string& serviceType, uint32_t iInterfaceIndex) = 0;
 
     /**
      * Called when a service was discovered.

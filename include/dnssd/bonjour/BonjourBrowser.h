@@ -24,7 +24,7 @@ public:
     ~BonjourBrowser() override;
 
     // MARK: IBrowser implementations -
-    Result browseFor (const std::string& service) override;
+    Result browseFor (const std::string& service, uint32_t iInterfaceIndex) override;
     bool reportIfError (const Result& result) noexcept;
 
     /**
